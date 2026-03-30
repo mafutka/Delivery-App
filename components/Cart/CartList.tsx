@@ -1,22 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createOrder } from "@/lib/api";
-import {OrderItem} from "../../types/order"
-
-
+import { CartItem } from "@/types/order";
+import OrderForm from "./OrderForm";
 
 export default function CartList() {
-  const [cart, setCart] = useState<OrderItem[]>(() => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("cart");
     return saved ? JSON.parse(saved) : [];
-  });
-
-  const [form, setForm] = useState({
-    email: "",
-    phone: "",
-    address: "",
   });
 
   useEffect(() => {
@@ -27,13 +19,14 @@ export default function CartList() {
     setCart((prev) =>
       prev.map((item) =>
         item.product._id === id
-          ? {
-              ...item,
-              quantity: Math.max(1, item.quantity + amount),
-            }
+          ? { ...item, quantity: Math.max(1, item.quantity + amount) }
           : item
       )
     );
+  };
+
+  const removeItem = (id: string) => {
+    setCart((prev) => prev.filter((item) => item.product._id !== id));
   };
 
   const total = cart.reduce(
@@ -41,77 +34,38 @@ export default function CartList() {
     0
   );
 
-  const handleSubmit = async () => {
-    const items: { productId: string; quantity: number }[] = cart.map(
-      (item) => ({
-        productId: item.product._id,
-        quantity: item.quantity,
-      })
-    );
-
-    await createOrder({
-      email: form.email,
-      phone: form.phone,
-      address: form.address,
-      items,
-    });
-
-    alert("Order created!");
-    localStorage.removeItem("cart");
+  const handleOrderSuccess = () => {
     setCart([]);
+    localStorage.removeItem("cart");
   };
 
   return (
-    <div>
-      <h1>Checkout</h1>
+    <div style={{ display: "flex", gap: 20 }}>
+      <div>
+        <h1>Cart</h1>
+        {cart.length === 0 && <p>Your cart is empty</p>}
+        {cart.map((item) => (
+          <div key={item.product._id}>
+            <p>
+              {item.product.name} - {item.product.price} $
+            </p>
+            <button onClick={() => updateQuantity(item.product._id, -1)}>
+              -
+            </button>
+            <span>{item.quantity}</span>
+            <button onClick={() => updateQuantity(item.product._id, 1)}>
+              +
+            </button>
+            <button onClick={() => removeItem(item.product._id)}>Remove</button>
+          </div>
+        ))}
+        <h2>Total: {total} $</h2>
+      </div>
 
-      {cart.map((item) => (
-        <div key={item.product._id}>
-          <p>
-            {item.product.name} - {item.product.price} $
-          </p>
-
-          <button onClick={() => updateQuantity(item.product._id, -1)}>
-            -
-          </button>
-
-          <span>{item.quantity}</span>
-
-          <button onClick={() => updateQuantity(item.product._id, 1)}>
-            +
-          </button>
-        </div>
-      ))}
-
-      <h2>Total: {total} $</h2>
-
-      <input
-        placeholder="Email"
-        value={form.email}
-        onChange={(e) =>
-          setForm({ ...form, email: e.target.value })
-        }
+      <OrderForm
+        items={cart.map((c) => ({ productId: c.product._id, quantity: c.quantity }))}
+        onSubmitSuccess={handleOrderSuccess}
       />
-
-      <input
-        placeholder="Phone"
-        value={form.phone}
-        onChange={(e) =>
-          setForm({ ...form, phone: e.target.value })
-        }
-      />
-
-      <input
-        placeholder="Address"
-        value={form.address}
-        onChange={(e) =>
-          setForm({ ...form, address: e.target.value })
-        }
-      />
-
-      <button onClick={handleSubmit}>
-        Submit order
-      </button>
     </div>
   );
 }

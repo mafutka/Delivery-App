@@ -28,6 +28,18 @@
     gap: 4px;
     cursor: pointer;
 }
+.categoryInput {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(89, 177, 122, 0.6);
+border-radius: 100%;
+}
+.categoryInput:checked {
+    background-color: #59b17a;
+}
 .rightWrapper {
     display: flex;
     width: 100%;
@@ -50,7 +62,7 @@ outline: none;
   align-items: center;
   color: #59b17a;
 }
-.allBtn {
+.allBtn, .goBtn  {
   border-radius: 24px;
   padding: 10px 16px;
   background: #59b17a;
@@ -74,3 +86,5 @@ outline: none;
     gap: 20px;
   }
 }
+
+.goBtn {}

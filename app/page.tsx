@@ -85,7 +85,7 @@ export default function Home() {
     <main className={css.main}>
       <div className={css.filters}>
          <div className={css.checkboxCont}>
-          <p >Categories:</p>
+          <h3>Categories:</h3>
           <div className={css.checkbox}>
           {categories.map((cat) => (
             <label className={css.categoryLabel} key={cat}>
@@ -126,9 +126,9 @@ export default function Home() {
         />
         <Products products={filteredProducts} addToCart={addToCart} />
       </div>
-      <div style={{ margin: "10px 0" }}>
+      <div >
         <Link href="/cart">
-          <button>Go to cart ({cart.length})</button>
+          <button className={css.goBtn}>Go to cart ({cart.length})</button>
         </Link>
       </div>
     </main>
