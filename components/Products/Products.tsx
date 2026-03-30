@@ -1,7 +1,7 @@
 import { Product } from "@/types/products";
 import ProductCard from "./ProductCard";
 
-import css from "./ProductList.module.css"
+import css from "./Products.module.css"
 
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   addToCart: (product: Product) => void;
 };
 
-export default function ProductsList({ products, addToCart }: Props) {
+export default function Products({ products, addToCart }: Props) {
   return (
     <div className={css.productList}>
       {products.map(p => (

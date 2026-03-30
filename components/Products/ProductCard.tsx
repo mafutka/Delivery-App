@@ -1,5 +1,5 @@
 import { Product } from "@/types/products"
-import css from "./ProductList.module.css"
+import css from "./Products.module.css"
 
 type Props = {
   product: Product

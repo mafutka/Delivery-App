@@ -1,7 +1,12 @@
 import { Product } from "./products";
 
-export type OrderItem = {
+
+export type CartItem = {
   product: Product;
+  quantity: number;
+};
+
+export type OrderItem = {
   productId: string;
   quantity: number;
 };
