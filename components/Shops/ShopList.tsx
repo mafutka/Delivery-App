@@ -4,7 +4,7 @@ import css from "./Shops.module.css"
 
 export default function Shops({ shops, activeShop, setActiveShop }: ShopsListProps) {
     return (
-        <div className="shops">
+        <div className={css.shopList}>
       {shops.map(shop => (
         <ShopCard
           key={shop._id}

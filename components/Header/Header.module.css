@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 88px;
+    background-color: #59b17a;
+    color: #f7f8fa;
+    padding: 20px;
+}
+
+.navigation {
+   font-weight: 700;
+font-size: 20px;
+}

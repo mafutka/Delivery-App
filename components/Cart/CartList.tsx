@@ -2,15 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { createOrder } from "@/lib/api";
-import { Product } from "@/types/products";
+import {OrderItem} from "../../types/order"
 
-type CartItem = {
-  product: Product;
-  quantity: number;
-};
+
 
 export default function CartList() {
-  const [cart, setCart] = useState<CartItem[]>(() => {
+  const [cart, setCart] = useState<OrderItem[]>(() => {
     if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("cart");
     return saved ? JSON.parse(saved) : [];

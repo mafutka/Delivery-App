@@ -2,12 +2,34 @@
 
 .layout {
     display: flex;
+    gap: 30px;
+}
+
+.shopList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* ShopCard */
-
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 176px;
+    height: 150px;
+    border: 1px solid rgba(89, 177, 122, 0.6);
+    border-radius: 20px;
+}
+.imgWrapper {
+    width: 160px;
+    height: 100px;
+}
 .image {
-    width: 100px;
+    width: 100%;
     height: 100%;
+    object-fit: cover;
     border-radius: 10px;
 }

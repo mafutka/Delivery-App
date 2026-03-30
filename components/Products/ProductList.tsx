@@ -1,6 +1,8 @@
 import { Product } from "@/types/products";
 import ProductCard from "./ProductCard";
 
+import css from "./ProductList.module.css"
+
 
 type Props = {
   products: Product[];
@@ -9,7 +11,7 @@ type Props = {
 
 export default function ProductsList({ products, addToCart }: Props) {
   return (
-    <div className="products">
+    <div className={css.productList}>
       {products.map(p => (
       <ProductCard 
       key={p._id} 

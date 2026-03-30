@@ -34,4 +34,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+button {
+  cursor: pointer;
+}
+h3 {
+  margin-bottom: 6px;
+}

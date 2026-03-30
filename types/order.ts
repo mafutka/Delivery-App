@@ -1,4 +1,7 @@
+import { Product } from "./products";
+
 export type OrderItem = {
+  product: Product;
   productId: string;
   quantity: number;
 };
