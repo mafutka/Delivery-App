@@ -7,8 +7,14 @@
 
 .shopList {
     display: flex;
-    flex-direction: column;
+    overflow-x: auto;
     gap: 10px;
+}
+
+@media(min-width: 768px) {
+    .shopList {
+    flex-direction: column;
+}
 }
 
 /* ShopCard */
@@ -19,13 +25,14 @@
     justify-content: center;
     align-items: center;
     width: 176px;
-    height: 150px;
+    max-height: 150px;
+    height: 100%;
     border: 1px solid rgba(89, 177, 122, 0.6);
     border-radius: 20px;
 }
+
 .imgWrapper {
-    width: 160px;
-    height: 100px;
+    display: none;
 }
 .image {
     width: 100%;
@@ -33,3 +40,8 @@
     object-fit: cover;
     border-radius: 10px;
 }
+@media(min-width: 768px) {.imgWrapper {
+    display: block;
+    width: 160px;
+    height: 100px;
+}}

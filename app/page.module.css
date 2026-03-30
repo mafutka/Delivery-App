@@ -1,6 +1,76 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+
+  gap: 40px;
+}
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.checkboxCont {
     display: flex;
-    padding: 20px;
-    margin: 0 auto;
-    gap: 40px;
+    flex-direction: column;
+    gap: 4px;
+}
+.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: auto
+    
+}
+.categoryLabel {
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+}
+.rightWrapper {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+.selectWrapper {
+  width:auto;
+}
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+outline: none;
+  height: 34px;
+  width: 100%;
+  border: 1px solid rgba(89, 177, 122, 0.6);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #59b17a;
+}
+.allBtn {
+  border-radius: 24px;
+  padding: 10px 16px;
+  background: #59b17a;
+  font-weight: 500;
+  border: none;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: center;
+  color: #f7f8fa;
+  height: 34px;
+}
+
+.maincontent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .maincontent {
+    flex-direction: row;
+    gap: 20px;
+  }
 }

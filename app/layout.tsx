@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}</body>
+        <Toaster position="top-right" />
     </html>
   );
 }

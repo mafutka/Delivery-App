@@ -5,7 +5,8 @@ export default function Header() {
     return (
           <div className={css.container}>
         <nav className={css.navigation}>
-            <Link href="/cart">Cart</Link>
+            <Link href="/">Shop</Link>
+            <Link href="/cart">Shopping Cart</Link>
         </nav>
         </div>
     )

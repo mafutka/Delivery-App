@@ -1,8 +1,9 @@
 /* ProductCard */
 .productCard {
-  min-width: 260px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 260px;
   margin: 0 auto;
   padding: 10px;
   justify-content: center;
@@ -41,7 +42,15 @@
 /* ProductList */
 
 .productList {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .productList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
 }
