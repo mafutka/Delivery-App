@@ -6,4 +6,5 @@ export type Product = {
   price: number;
   category: string;
   shopId: Shop;
+  image: string;
 };

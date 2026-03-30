@@ -9,7 +9,7 @@ type CartItem = {
   quantity: number;
 };
 
-export default function CartPage() {
+export default function CartList() {
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("cart");

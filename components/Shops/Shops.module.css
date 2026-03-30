@@ -3,3 +3,11 @@
 .layout {
     display: flex;
 }
+
+/* ShopCard */
+
+.image {
+    width: 100px;
+    height: 100%;
+    border-radius: 10px;
+}

@@ -1,4 +1,5 @@
 import { Product } from "@/types/products";
+import css from "./ProductList.module.css"
 
 type Props = {
   product: Product;
@@ -7,9 +8,10 @@ type Props = {
 
 export default function ProductCard({ product, addToCart }: Props) {
   return (
-    <div className="card">
+    <div className={css.productCard}>
+      <img className={css.image} src={product.image} alt={product.image} />
       <h3>{product.name}</h3>
-      <p>{product.price} $</p>
+      <p>Price: {product.price} $</p>
       <button onClick={() => addToCart(product)}>
         Add to cart
       </button>
