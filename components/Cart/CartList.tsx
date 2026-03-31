@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { CartItem } from "@/types/order";
 import OrderForm from "./OrderForm";
 
+import css from "./Cart.module.css"
+
 export default function CartList() {
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window === "undefined") return [];
@@ -40,9 +42,15 @@ export default function CartList() {
   };
 
   return (
-    <div style={{ display: "flex", gap: 20 }}>
+    <div className={css.listContainer} style={{ display: "flex", gap: 20 }}>
+      <div className={css.orderform}>
+       <OrderForm
+        items={cart.map((c) => ({ productId: c.product._id, quantity: c.quantity }))}
+        onSubmitSuccess={handleOrderSuccess}
+      />
+      </div>
       <div>
-        <h1>Cart</h1>
+        <h2>Shopping Cart</h2>
         {cart.length === 0 && <p>Your cart is empty</p>}
         {cart.map((item) => (
           <div key={item.product._id}>
@@ -59,13 +67,8 @@ export default function CartList() {
             <button onClick={() => removeItem(item.product._id)}>Remove</button>
           </div>
         ))}
-        <h2>Total: {total} $</h2>
+        <h3>Total: {total} $</h3>
       </div>
-
-      <OrderForm
-        items={cart.map((c) => ({ productId: c.product._id, quantity: c.quantity }))}
-        onSubmitSuccess={handleOrderSuccess}
-      />
     </div>
   );
 }

@@ -12,6 +12,7 @@ export type OrderItem = {
 };
 
 export type CreateOrder = {
+  name: string;
   email: string;
   phone: string;
   address: string;

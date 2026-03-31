@@ -11,6 +11,7 @@ type Props = {
 
 export default function OrderForm({ items, onSubmitSuccess }: Props) {
   const [form, setForm] = useState({
+    name: "",
     email: "",
     phone: "",
     address: "",
@@ -42,7 +43,7 @@ export default function OrderForm({ items, onSubmitSuccess }: Props) {
     if (res.ok) {
       alert("Order created!");
       onSubmitSuccess();
-      setForm({ email: "", phone: "", address: "" });
+      setForm({name: "", email: "", phone: "", address: "" });
     } else {
       const data = await res.json();
       alert("Error: " + data.error);
@@ -51,7 +52,11 @@ export default function OrderForm({ items, onSubmitSuccess }: Props) {
 
   return (
     <div className={css.form}>
-      <h2>Order Form</h2>
+        <input
+        placeholder="Name"
+        value={form.email}
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
+      />
       <input
         placeholder="Email"
         value={form.email}

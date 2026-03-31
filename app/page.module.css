@@ -62,18 +62,6 @@ outline: none;
   align-items: center;
   color: #59b17a;
 }
-.allBtn, .goBtn  {
-  border-radius: 24px;
-  padding: 10px 16px;
-  background: #59b17a;
-  font-weight: 500;
-  border: none;
-  font-size: 14px;
-  line-height: 100%;
-  text-align: center;
-  color: #f7f8fa;
-  height: 34px;
-}
 
 .maincontent {
   display: flex;
@@ -87,4 +75,3 @@ outline: none;
   }
 }
 
-.goBtn {}
