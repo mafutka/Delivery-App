@@ -24,3 +24,24 @@
 }
 
 .orderBtn {}
+.cartContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+      
+        padding: 20px;
+
+}
+.addItemsBtns {
+    display: flex;
+    gap: 26px;
+
+}
+.quantityItems {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+}
+
+.total {}

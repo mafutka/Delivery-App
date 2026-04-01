@@ -42,14 +42,14 @@ export default function CartList() {
   };
 
   return (
-    <div className={css.listContainer} style={{ display: "flex", gap: 20 }}>
+    <div className={css.listContainer}>
       <div className={css.orderform}>
        <OrderForm
         items={cart.map((c) => ({ productId: c.product._id, quantity: c.quantity }))}
         onSubmitSuccess={handleOrderSuccess}
       />
       </div>
-      <div>
+      <div className={css.cartContainer}>
         <h2>Shopping Cart</h2>
         {cart.length === 0 && <p>Your cart is empty</p>}
         {cart.map((item) => (
@@ -57,6 +57,8 @@ export default function CartList() {
             <p>
               {item.product.name} - {item.product.price} $
             </p>
+            <div className={css.addItemsBtns}>
+              <div className={css.quantityItems}>
             <button onClick={() => updateQuantity(item.product._id, -1)}>
               -
             </button>
@@ -64,10 +66,12 @@ export default function CartList() {
             <button onClick={() => updateQuantity(item.product._id, 1)}>
               +
             </button>
+            </div>
             <button onClick={() => removeItem(item.product._id)}>Remove</button>
+            </div>
           </div>
         ))}
-        <h3>Total: {total} $</h3>
+        <h3 className={css.total}>Total: {total} $</h3>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { Product } from "@/types/products";
 import { Shop } from "@/types/shop";
 import { CreateOrder } from "@/types/order";
 
-const BASE_URL = "http://localhost:3000"; 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL; 
 
 export const getProducts = async (): Promise<Product[]> => {
   const res = await fetch(`${BASE_URL}/products`);
